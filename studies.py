@@ -15,6 +15,7 @@ StudiesType = Union[Study, Sequence[Study]]
 def objective_single(trial: optuna.Trial) -> float:
     x1 = trial.suggest_float("x1", 0, 10)
     x2 = trial.suggest_float("x2", 0, 10)
+    trial.suggest_categorical("y", ["hoge", None])
     return (x1 - 2) ** 2 + (x2 - 5) ** 2
 
 
